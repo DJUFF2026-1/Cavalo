@@ -2,7 +2,7 @@ extends CharacterBody2D
 #onready var animation: AnimationPlayer = get_node("Animation")
 @onready var sprite: Sprite2D = get_node("Sprite")
 @onready var colision: CollisionShape2D = get_node("Collision")
-@onready var tile_map_layer = $TileMapLayer
+#@onready var tile_map_layer = $TileMapLayer
 
 #const TILE_SIZE
 var target_pos: Vector2
@@ -41,11 +41,11 @@ func get_input_and_move_player(collision:KinematicCollision2D) -> void:
 		#var tile_atlas_coords = tile_map_layer.get_cell_atlas_coords(0)
 		move_and_slide()
 		if (position.distance_to(target_pos) >= 0.5) or (collision):
-			print("nao moving")
+			#print("nao moving")
 			position = target_pos
 			velocity = Vector2.ZERO
 			moving = false
-	print(target_pos)
+	#print(target_pos)
 	pass
 #fazer depois de placeholder eon
 func animate() -> void:

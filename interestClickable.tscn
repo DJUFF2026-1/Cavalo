@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cey048bct4dp5"]
+
+[ext_resource type="Script" uid="uid://cu8u5a0rocsb6" path="res://scripts/interestClickable.gd" id="1_5joui"]
+[ext_resource type="Texture2D" uid="uid://ctp66qd5gko3n" path="res://assets/png/interestPlaceholder.png" id="2_w4j4m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqyps"]
+size = Vector2(30, 30)
+
+[node name="Interest" type="Area2D" unique_id=1106389784]
+disable_mode = 2
+script = ExtResource("1_5joui")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=579602993]
+texture = ExtResource("2_w4j4m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1955746683]
+shape = SubResource("RectangleShape2D_gqyps")

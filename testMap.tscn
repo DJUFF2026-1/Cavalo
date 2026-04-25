@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ymitutacgs17" path="res://assets/png/placeholderWALLtile.png" id="2_jet0j"]
 [ext_resource type="PackedScene" uid="uid://dxiqfupu62efm" path="res://player.tscn" id="3_jet0j"]
 [ext_resource type="Script" uid="uid://dyt1csyww6mnl" path="res://tileMapLayer.gd" id="3_rnrx8"]
+[ext_resource type="PackedScene" uid="uid://cey048bct4dp5" path="res://interestClickable.tscn" id="5_hd237"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rnrx8"]
 texture = ExtResource("1_mvlbn")
@@ -34,9 +35,23 @@ metadata/position = Vector2(0, 0)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1001703198]
 editor_description = "Camera da do testMap"
 anchor_mode = 0
+enabled = false
 zoom = Vector2(0.99, 0.905)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="Player" parent="." unique_id=198496611 instance=ExtResource("3_jet0j")]
 position = Vector2(15, 15)
+
+[node name="Collision" parent="Player" index="2" unique_id=1857105180]
+visible = false
+
+[node name="Interest" parent="." unique_id=1106389784 instance=ExtResource("5_hd237")]
+position = Vector2(164, 45)
+disable_mode = 0
+
+[node name="CollisionShape2D" parent="Interest" index="1" unique_id=1955746683]
+visible = false
+
+[editable path="Player"]
+[editable path="Interest"]
