@@ -3,6 +3,10 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = get_node("Sprite")
 
 #const TILE_SIZE
+var target_pos: Vector2
+var moving = false
+func _ready():
+	target_pos = position
 
 #meio que o update 
 func _physics_process(delta: float) -> void:
@@ -13,13 +17,31 @@ func _physics_process(delta: float) -> void:
 	
 func get_input_and_move_player() -> void:
 	#ui_right eh o input do botao direito etc, diminui para pegar o negativo ou positivo e definir velocidade
-	var direction_vector: Vector2 = Vector2(
-		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
-		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-		).normalized()
-	velocity = direction_vector * Globals.PLAYER_SPEED
-	#atualiza posicao conforme velocidade
-	move_and_slide()
+	if not moving:
+		var input = Vector2.ZERO
+		
+		if Input.is_action_just_pressed("ui_right"): 
+			input = Vector2.RIGHT
+			velocity = velocity * (-1)
+		elif Input.is_action_just_pressed("ui_left"): 
+			input = Vector2.LEFT
+		elif Input.is_action_just_pressed("ui_down"): 
+			input = Vector2.DOWN
+		elif Input.is_action_just_pressed("ui_up"): 
+			input = Vector2.UP
+		
+		if input != Vector2.ZERO:
+			target_pos = position + input * Globals.TILE_SIZE
+			velocity = input * Globals.PLAYER_SPEED
+			moving = true
+		
+	if moving:
+		#position = position.move_toward(target_pos, Globals.PLAYER_SPEED)
+		move_and_slide()
+		if position.distance_to(target_pos) == 0.0:
+			position = target_pos
+			velocity = Vector2.ZERO
+			moving = false
 	pass
 #fazer depois de placeholder eon
 func animate() -> void:

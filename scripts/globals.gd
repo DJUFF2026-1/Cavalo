@@ -1,4 +1,4 @@
 extends Node
 
-const TILE_SIZE = 16
+const TILE_SIZE = 30
 const PLAYER_SPEED = 60
