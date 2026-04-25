@@ -3,25 +3,22 @@
 [ext_resource type="Texture2D" uid="uid://c54gbppqcicwr" path="res://assets/png/placeholdertile.png" id="1_mvlbn"]
 [ext_resource type="Texture2D" uid="uid://ymitutacgs17" path="res://assets/png/placeholderWALLtile.png" id="2_jet0j"]
 [ext_resource type="PackedScene" uid="uid://dxiqfupu62efm" path="res://player.tscn" id="3_jet0j"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jet0j"]
-friction = 0.0
+[ext_resource type="Script" uid="uid://dyt1csyww6mnl" path="res://tileMapLayer.gd" id="3_rnrx8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rnrx8"]
 texture = ExtResource("1_mvlbn")
 texture_region_size = Vector2i(30, 30)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15, 15, -15, -15, 15, -15, 15, 15)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hd237"]
 texture = ExtResource("2_jet0j")
 texture_region_size = Vector2i(30, 30)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15, -15, 15, -15, 15, 15, -15, 15)
 
 [sub_resource type="TileSet" id="TileSet_5twqj"]
 tile_size = Vector2i(30, 30)
 physics_layer_0/collision_layer = 1
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_jet0j")
 sources/0 = SubResource("TileSetAtlasSource_rnrx8")
 sources/1 = SubResource("TileSetAtlasSource_hd237")
 
@@ -31,6 +28,8 @@ tile_set = SubResource("TileSet_5twqj")
 occlusion_enabled = false
 physics_quadrant_size = 30
 navigation_visibility_mode = 1
+script = ExtResource("3_rnrx8")
+metadata/position = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1001703198]
 editor_description = "Camera da do testMap"
@@ -40,12 +39,4 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="Player" parent="." unique_id=198496611 instance=ExtResource("3_jet0j")]
-position = Vector2(16, 15)
-
-[node name="Sprite" parent="Player" index="0" unique_id=363612230]
-position = Vector2(-1, 0)
-
-[node name="Camera2D" parent="Player" index="2" unique_id=135803923]
-visible = false
-
-[editable path="Player"]
+position = Vector2(15, 15)

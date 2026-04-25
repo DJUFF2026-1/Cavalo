@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bxk5vjjh877hl" path="res://assets/png/cavalplaceh.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
-size = Vector2(14, 13)
+size = Vector2(30, 30)
 
 [node name="Player" type="CharacterBody2D" unique_id=198496611]
 script = ExtResource("1_onrkg")
@@ -12,15 +12,12 @@ script = ExtResource("1_onrkg")
 [node name="Sprite" type="Sprite2D" parent="." unique_id=363612230]
 unique_name_in_owner = true
 editor_description = "Sprite do Cavalinho"
-position = Vector2(0, -1)
 texture = ExtResource("2_onrkg")
-
-[node name="Collision" type="CollisionShape2D" parent="." unique_id=1857105180]
-editor_description = "Caixa de Colisão do Cavalinho"
-position = Vector2(0, 6.5)
-shape = SubResource("RectangleShape2D_hqtel")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=135803923]
 editor_description = "Camera que acompanha o cavalinho"
-position = Vector2(0, -1)
 zoom = Vector2(0.615, 0.615)
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1857105180]
+editor_description = "Caixa de Colisão do Cavalinho"
+shape = SubResource("RectangleShape2D_hqtel")
