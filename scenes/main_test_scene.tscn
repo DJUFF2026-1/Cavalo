@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b2wqdd4kovtn1"]
+
+[ext_resource type="Script" uid="uid://b3migupaonqtd" path="res://scenes/mainbasic.gd" id="1_8m3vb"]
+[ext_resource type="PackedScene" uid="uid://dpkq6vwcn7n1g" path="res://scenes/scene_obj/testMap.tscn" id="1_fioey"]
+[ext_resource type="PackedScene" uid="uid://dxiqfupu62efm" path="res://scenes/scene_obj/player.tscn" id="2_8m3vb"]
+[ext_resource type="PackedScene" uid="uid://cey048bct4dp5" path="res://scenes/scene_obj/interestClickable.tscn" id="3_hr4kk"]
+[ext_resource type="PackedScene" uid="uid://w333rveyp82j" path="res://scenes/scene_obj/popup_menu_roleta.tscn" id="5_hr4kk"]
+
+[node name="MainTestScene" type="Node2D" unique_id=950267755]
+script = ExtResource("1_8m3vb")
+
+[node name="TileMapLayer" parent="." unique_id=1402697394 instance=ExtResource("1_fioey")]
+
+[node name="Player" parent="." unique_id=198496611 instance=ExtResource("2_8m3vb")]
+position = Vector2(-375, -165)
+
+[node name="Interest" parent="." unique_id=1106389784 instance=ExtResource("3_hr4kk")]
+position = Vector2(-195, -165)
+
+[node name="PopupMenuRoleta" parent="." unique_id=1209172145 instance=ExtResource("5_hr4kk")]
+position = Vector2(188.43121, 118.569374)

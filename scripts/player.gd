@@ -2,20 +2,31 @@ extends CharacterBody2D
 #onready var animation: AnimationPlayer = get_node("Animation")
 @onready var sprite: Sprite2D = get_node("Sprite")
 #@onready var colision: CollisionShape2D = get_node("Collision")
-@onready var tile_map_layer = get_parent()
-
+@onready var sceneParent = get_parent()
+@onready var tile_map_layer = sceneParent.get_node("TileMapLayer")
 #const TILE_SIZE
 var target_pos: Vector2
-var last_L_dir = false
+@export var last_L_dir = false
 var moving = false
 var moving_to_L = false
 var movement_of_num_tiles_count = 0
 var next_pos: Vector2
 var input: Vector2
 
+var tileSize = 0
+var playerVel = 0
+
+
+
 
 func _ready():
 	target_pos = position
+	if (sceneParent.half_tile):
+		tileSize = Globals.TILE_SIZE/2
+		playerVel = Globals.PLAYER_SPEED/2
+	else:
+		tileSize = Globals.TILE_SIZE
+		playerVel = Globals.PLAYER_SPEED
 #meio que o update 
 func _physics_process(delta: float) -> void:
 	#var collision := move_and_collide(velocity)
@@ -41,7 +52,7 @@ func get_last_walkable_in_line(dir: Vector2) -> Vector2:
 	var last_walkable = position  
 	
 	for i in range(1, 3):  
-		var check_pos = position + dir * Globals.TILE_SIZE * i
+		var check_pos = position + dir * tileSize * i
 		if is_tile_walkable(check_pos):
 			last_walkable = check_pos
 			movement_of_num_tiles_count += 1
@@ -82,10 +93,10 @@ func get_input_desloc_for_L_dir() -> Vector2:
 func get_desloc_to_L_dir():
 	
 	var L_dir_by_input = get_input_desloc_for_L_dir()
-	next_pos = position + L_dir_by_input * Globals.TILE_SIZE
+	next_pos = position + L_dir_by_input * tileSize
 	if is_tile_walkable(next_pos):
 		target_pos = next_pos
-		velocity = L_dir_by_input * Globals.PLAYER_SPEED
+		velocity = L_dir_by_input * playerVel
 		moving_to_L = true
 		#moving = true
 
@@ -110,7 +121,7 @@ func get_input_and_move_player() -> void:
 			
 			if next_pos != position:
 				target_pos = next_pos
-				velocity = input * Globals.PLAYER_SPEED
+				velocity = input * playerVel
 				moving = true
 		
 	if moving:

@@ -1,5 +1,8 @@
 extends Area2D
 @onready var colision: CollisionShape2D = get_node("CollisionShape2D")
+@onready var parentNode = get_parent()
+@onready var popUpMenubaseNode = parentNode.get_node("PopupMenuRoleta")
+@onready var popupInteracMenu = popUpMenubaseNode.get_node("PopupInteracMenu")
 
 var inside:bool = false
 
@@ -15,4 +18,5 @@ func _physics_process(delta: float) -> void:
 
 func if_mouse_and_click() -> void:
 	if (inside and Input.is_action_just_pressed("ui_left_mouse_click")):
-		print("clicou elem interessante . . . ")
+		#print("clicou elem interessante . . . ")
+		popupInteracMenu.popup()

@@ -2,9 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c54gbppqcicwr" path="res://assets/png/placeholdertile.png" id="1_mvlbn"]
 [ext_resource type="Texture2D" uid="uid://ymitutacgs17" path="res://assets/png/placeholderWALLtile.png" id="2_jet0j"]
-[ext_resource type="PackedScene" uid="uid://dxiqfupu62efm" path="res://player.tscn" id="3_jet0j"]
-[ext_resource type="Script" uid="uid://dyt1csyww6mnl" path="res://tileMapLayer.gd" id="3_rnrx8"]
-[ext_resource type="PackedScene" uid="uid://cey048bct4dp5" path="res://interestClickable.tscn" id="5_hd237"]
+[ext_resource type="Script" uid="uid://dyt1csyww6mnl" path="res://scripts/tileMapLayer.gd" id="3_rnrx8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rnrx8"]
 texture = ExtResource("1_mvlbn")
@@ -38,20 +36,10 @@ metadata/position = Vector2(0, 0)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1001703198]
 editor_description = "Camera da do testMap"
 enabled = false
-zoom = Vector2(0.99, 0.905)
+zoom = Vector2(1.083, 0.99)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.0
 drag_top_margin = 0.0
 drag_right_margin = 0.0
 drag_bottom_margin = 0.0
-
-[node name="Player" parent="." unique_id=198496611 instance=ExtResource("3_jet0j")]
-position = Vector2(-345, -165)
-
-[node name="Interest" parent="." unique_id=1106389784 instance=ExtResource("5_hd237")]
-position = Vector2(-165, -165)
-disable_mode = 0
-
-[editable path="Player"]
-[editable path="Interest"]

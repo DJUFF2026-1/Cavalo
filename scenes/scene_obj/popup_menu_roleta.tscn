@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://w333rveyp82j"]
+
+[ext_resource type="PackedScene" uid="uid://cr6bbh336c5uq" path="res://scenes/scene_obj/roleta.tscn" id="1_oovof"]
+[ext_resource type="Script" uid="uid://c6udlryv5b3v5" path="res://scenes/scene_obj/popup_interac_menu.gd" id="2_la26s"]
+[ext_resource type="Texture2D" uid="uid://c54gbppqcicwr" path="res://assets/png/placeholdertile.png" id="2_ypeik"]
+
+[node name="PopupMenuRoleta" type="Node2D" unique_id=1209172145]
+
+[node name="PopupInteracMenu" type="PopupPanel" parent="." unique_id=1429779680]
+transparent_bg = false
+canvas_item_default_texture_filter = 0
+oversampling_override = 1.0
+initial_position = 2
+size = Vector2i(300, 120)
+transparent = false
+sharp_corners = true
+script = ExtResource("2_la26s")
+
+[node name="MenuButton" type="MenuButton" parent="PopupInteracMenu" unique_id=2065206561]
+anchors_preset = -1
+anchor_left = 0.89300007
+anchor_top = 0.708
+anchor_right = 0.98700005
+anchor_bottom = 0.96700007
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 296.0
+offset_bottom = 116.0
+icon = ExtResource("2_ypeik")
+clip_text = true
+icon_alignment = 2
+vertical_icon_alignment = 2
+expand_icon = true
+
+[node name="PopupRoleta" type="PopupPanel" parent="." unique_id=684295270]
+canvas_item_default_texture_filter = 0
+oversampling_override = 1.0
+initial_position = 2
+size = Vector2i(522, 520)
+visible = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="PopupRoleta" unique_id=559421696]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 518.0
+offset_bottom = 516.0
+
+[node name="SubViewport" type="SubViewport" parent="PopupRoleta/SubViewportContainer" unique_id=1367934542]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(300, 120)
+render_target_update_mode = 4
+
+[node name="Roleta" parent="PopupRoleta/SubViewportContainer/SubViewport" unique_id=1353645575 instance=ExtResource("1_oovof")]
+position = Vector2(136, 61)

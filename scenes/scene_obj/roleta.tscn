@@ -1,0 +1,46 @@
+[gd_scene format=4 uid="uid://cr6bbh336c5uq"]
+
+[ext_resource type="Texture2D" uid="uid://c54gbppqcicwr" path="res://assets/png/placeholdertile.png" id="1_1ilyx"]
+[ext_resource type="Script" uid="uid://ka00022kacsw" path="res://scenes/scene_obj/roleta.gd" id="1_36mwp"]
+[ext_resource type="Texture2D" uid="uid://ymitutacgs17" path="res://assets/png/placeholderWALLtile.png" id="2_36mwp"]
+[ext_resource type="PackedScene" uid="uid://dxiqfupu62efm" path="res://scenes/scene_obj/player.tscn" id="3_ppigc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1j35u"]
+texture = ExtResource("1_1ilyx")
+texture_region_size = Vector2i(15, 15)
+0:0/0 = 0
+0:0/0/custom_data_0 = "floor"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_41w4f"]
+texture = ExtResource("2_36mwp")
+texture_region_size = Vector2i(15, 15)
+0:0/0 = 0
+0:0/0/custom_data_0 = "parede"
+
+[sub_resource type="TileSet" id="TileSet_v4m1w"]
+tile_size = Vector2i(15, 15)
+custom_data_layer_0/name = "class"
+custom_data_layer_0/type = 4
+sources/0 = SubResource("TileSetAtlasSource_1j35u")
+sources/1 = SubResource("TileSetAtlasSource_41w4f")
+
+[node name="Roleta" type="Node2D" unique_id=1353645575]
+script = ExtResource("1_36mwp")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1177661289]
+tile_map_data = PackedByteArray("AAD7//7/AQAAAAAAAAD7////AQAAAAAAAAD7/wAAAQAAAAAAAAD7/wEAAQAAAAAAAAD8//3/AQAAAAAAAAD8//7/AAAAAAAAAAD8////AAAAAAAAAAD8/wAAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wIAAQAAAAAAAAD9//z/AQAAAAAAAAD9//3/AAAAAAAAAAD9//7/AAAAAAAAAAD9////AAAAAAAAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAAAAAD9/wIAAAAAAAAAAAD9/wMAAQAAAAAAAAD+//v/AQAAAAAAAAD+//z/AAAAAAAAAAD+//3/AAAAAAAAAAD+//7/AAAAAAAAAAD+////AAAAAAAAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAD+/wMAAAAAAAAAAAD+/wQAAQAAAAAAAAD///v/AQAAAAAAAAD///z/AAAAAAAAAAD///3/AAAAAAAAAAD///7/AAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wIAAAAAAAAAAAD//wMAAAAAAAAAAAD//wQAAQAAAAAAAAAAAPv/AQAAAAAAAAAAAPz/AAAAAAAAAAAAAP3/AAAAAAAAAAAAAP7/AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAQAAAAAAAAABAPv/AQAAAAAAAAABAPz/AAAAAAAAAAABAP3/AAAAAAAAAAABAP7/AAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAQAAAAAAAAACAPz/AQAAAAAAAAACAP3/AAAAAAAAAAACAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAQAAAAAAAAADAP3/AQAAAAAAAAADAP7/AAAAAAAAAAADAP//AAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAQAAAAAAAAAEAP7/AQAAAAAAAAAEAP//AQAAAAAAAAAEAAAAAQAAAAAAAAAEAAEAAQAAAAAAAAABAAIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_v4m1w")
+
+[node name="Player" parent="." unique_id=198496611 instance=ExtResource("3_ppigc")]
+
+[node name="Sprite" parent="Player" index="0" unique_id=363612230]
+position = Vector2(-7.5, 8)
+scale = Vector2(0.5, 0.46666667)
+
+[node name="Camera2D" parent="Player" index="1" unique_id=135803923]
+enabled = false
+
+[node name="Collision" parent="Player" index="2" unique_id=1857105180]
+position = Vector2(-7.5, 7.5)
+
+[editable path="Player"]
