@@ -11,7 +11,7 @@ Projeto desenvolvido na **Godot Engine**, com foco em mecânicas de exploração
 ### 1. Clonar o repositório
 
 ```bash
-git clone [https://github.com/DJUFF2026-1/Cavalo.git]
+git clone https://github.com/DJUFF2026-1/Cavalo.git
 ```
 
 ### 2. Importar no Godot
