@@ -19,3 +19,9 @@ position = Vector2(-195, -165)
 
 [node name="PopupMenuRoleta" parent="." unique_id=1209172145 instance=ExtResource("5_hr4kk")]
 position = Vector2(188.43121, 118.569374)
+
+[node name="Timer" type="Timer" parent="." unique_id=734444470]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
