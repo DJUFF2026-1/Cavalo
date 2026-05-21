@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dybf50cfxlvrm"]
+
+[ext_resource type="Texture2D" uid="uid://clqrflumetwe6" path="res://assets/png/timer.png" id="1_o6fnk"]
+
+[node name="timer" type="Sprite2D" unique_id=132473846]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_o6fnk")

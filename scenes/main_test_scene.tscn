@@ -5,6 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://dxiqfupu62efm" path="res://scenes/scene_obj/player.tscn" id="2_8m3vb"]
 [ext_resource type="PackedScene" uid="uid://cey048bct4dp5" path="res://scenes/scene_obj/interestClickable.tscn" id="3_hr4kk"]
 [ext_resource type="PackedScene" uid="uid://w333rveyp82j" path="res://scenes/scene_obj/popup_menu_roleta.tscn" id="5_hr4kk"]
+[ext_resource type="PackedScene" uid="uid://dybf50cfxlvrm" path="res://scenes/scene_obj/timer.tscn" id="6_xwcn1"]
+[ext_resource type="Texture2D" uid="uid://dqjcd6tldaipd" path="res://assets/png/timerFull.png" id="7_cyst7"]
+[ext_resource type="Script" uid="uid://b6nq3mvlaf8ad" path="res://texture_progress_bar.gd" id="8_repgn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ebcvy"]
 
 [node name="MainTestScene" type="Node2D" unique_id=950267755]
 script = ExtResource("1_8m3vb")
@@ -20,8 +25,19 @@ position = Vector2(-195, -165)
 [node name="PopupMenuRoleta" parent="." unique_id=1209172145 instance=ExtResource("5_hr4kk")]
 position = Vector2(188.43121, 118.569374)
 
-[node name="Timer" type="Timer" parent="." unique_id=734444470]
-wait_time = 5.0
-autostart = true
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1194707065]
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="timer" parent="CanvasLayer" unique_id=132473846 instance=ExtResource("6_xwcn1")]
+position = Vector2(20, 20)
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="CanvasLayer/timer" unique_id=1179887481 node_paths=PackedStringArray("texture_progress_bar_2")]
+material = SubResource("ShaderMaterial_ebcvy")
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+step = 0.001
+fill_mode = 4
+texture_progress = ExtResource("7_cyst7")
+script = ExtResource("8_repgn")
+texture_progress_bar_2 = NodePath(".")
