@@ -8,6 +8,7 @@ size = Vector2(15, 15)
 
 [node name="Player" type="CharacterBody2D" unique_id=198496611]
 script = ExtResource("1_onrkg")
+last_L_dir = null
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=363612230]
 unique_name_in_owner = true
@@ -21,3 +22,9 @@ zoom = Vector2(0.615, 0.615)
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1857105180]
 editor_description = "Caixa de Colisão do Cavalinho"
 shape = SubResource("RectangleShape2D_hqtel")
+
+[node name="TimerToBlink" type="Timer" parent="." unique_id=829013195]
+wait_time = 6.0
+autostart = true
+
+[connection signal="timeout" from="TimerToBlink" to="." method="_on_timer_to_blink_timeout"]

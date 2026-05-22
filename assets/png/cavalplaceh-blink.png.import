@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bforeb4kp7fi0"
-path="res://.godot/imported/cavalplaceh.png-e215e346c532c2d70b3b6e8e90c4940e.ctex"
+uid="uid://cq777k7abesde"
+path="res://.godot/imported/cavalplaceh-blink.png-79f7ac4659689bb9721b3a8e52f4308f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/png/cavalplaceh.png"
-dest_files=["res://.godot/imported/cavalplaceh.png-e215e346c532c2d70b3b6e8e90c4940e.ctex"]
+source_file="res://assets/png/cavalplaceh-blink.png"
+dest_files=["res://.godot/imported/cavalplaceh-blink.png-79f7ac4659689bb9721b3a8e52f4308f.ctex"]
 
 [params]
 

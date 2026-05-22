@@ -16,7 +16,8 @@ var input: Vector2
 var tileSize = 0
 var playerVel = 0
 
-
+const NORMAL_SPRITE = preload("res://assets/png/cavalplaceh.png")
+const BLINKING_SPRITE = preload("res://assets/png/cavalplaceh-blink.png")
 
 
 func _ready():
@@ -168,3 +169,21 @@ func flip_sprite_direction_based_on_velocity() -> void:
 	elif velocity.x < 0:
 		sprite.flip_h = true
 	
+#
+
+
+func _on_timer_to_blink_timeout() -> void:
+	#O personagem estara com o olho aberto mas aqui ele fecha o olho
+	sprite.texture = BLINKING_SPRITE
+	await get_tree().create_timer(0.12).timeout #permanece fechado por 0.12s
+	
+	#Aqui ele abre o olho de novo
+	sprite.texture = NORMAL_SPRITE
+	await get_tree().create_timer(0.10).timeout #permanece aberto por 0.10s
+	
+	#Aqui ele fecha de novo
+	sprite.texture = BLINKING_SPRITE
+	await get_tree().create_timer(0.12).timeout #permance fechado por 0.12s
+	
+	#No final permance aberto esperando o proximo timeout que esta configurado de 6 em 6 segundos
+	sprite.texture = NORMAL_SPRITE
