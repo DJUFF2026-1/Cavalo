@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dxiqfupu62efm"]
 
 [ext_resource type="Script" uid="uid://so8okkc2rlek" path="res://scripts/player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://bxk5vjjh877hl" path="res://assets/png/cavalplaceh.png" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://cever0uuckly1" path="res://assets/png/mctest2.png" id="2_yp5dt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
 size = Vector2(15, 15)
@@ -9,13 +9,16 @@ size = Vector2(15, 15)
 [node name="Player" type="CharacterBody2D" unique_id=198496611]
 script = ExtResource("1_onrkg")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=363612230]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1317238527]
 unique_name_in_owner = true
 editor_description = "Sprite do Cavalinho"
-texture = ExtResource("2_onrkg")
+position = Vector2(-8.34465e-07, 4.7683716e-07)
+scale = Vector2(1.0000001, 1)
+texture = ExtResource("2_yp5dt")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=135803923]
 editor_description = "Camera que acompanha o cavalinho"
+visible = false
 zoom = Vector2(0.615, 0.615)
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1857105180]
